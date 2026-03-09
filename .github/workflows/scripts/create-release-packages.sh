@@ -187,15 +187,15 @@ rm -rf "${OUTPUT_DIR}"/temp-*
 echo "Generating release packages for version: $VERSION"
 echo ""
 
+ARGUMENTS='$ARGUMENTS'
+
 for agent in "${ALL_AGENTS[@]}"; do
     echo "Processing agent: $agent"
-    
+
     # Create bash/zsh package
-    ARGUMENTS="$ARGUMENTS"
     create_package "$agent" "sh"
-    
+
     # Create PowerShell package
-    ARGUMENTS="$ARGUMENTS"
     create_package "$agent" "ps"
 done
 
